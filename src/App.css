@@ -1,0 +1,28 @@
+body {
+  background: linear-gradient(241.74deg, #cbe0ea 3.43%, #c2d7e0 49.65%, #dae0e2 95%);
+}
+p {
+  margin: 0 !important;
+}
+ul {
+  list-style: none;
+  padding: 0 !important;
+}
+a {
+  text-decoration: none !important;
+}
+.bg-main {
+  background: #ffffff66;
+  border: 3px solid #ffffff;
+  border-radius: 20px;
+}
+.text-main {
+  color: #0fb3bb;
+  font-weight: 600 !important;
+}
+.btn-main {
+  background: #0fb3bbcc !important;
+  border-radius: 10px !important;
+  font-weight: 700 !important;
+  padding: 19px 47px 19px 47px !important;
+}

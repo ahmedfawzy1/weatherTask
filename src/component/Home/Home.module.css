@@ -1,0 +1,21 @@
+.hero .time {
+  font-size: 12px;
+}
+.hero .weather .status {
+  font-size: 14px;
+  color: #00000066;
+}
+.hero .conclution {
+  font-size: 14px;
+}
+.hero .tomorrow .head {
+  border-bottom: 1px solid #00000014;
+}
+.hero .tomorrow .body .day {
+  font-size: 12px;
+  color: #00000066;
+}
+.hero .tomorrow .body .info {
+  font-size: 12px;
+  color: #000000ad;
+}

@@ -1,0 +1,13 @@
+.details input {
+  border: 1px solid #0000000e;
+  border-radius: 12px;
+}
+.details input::placeholder {
+  padding-left: 18px;
+}
+.details i {
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 10px;
+  color: #00000069;
+}
