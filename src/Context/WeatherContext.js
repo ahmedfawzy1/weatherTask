@@ -12,10 +12,12 @@ export default function WeatherContextProvider(props) {
 
   async function getWeatherDetails() {
     let url = `https://api.weatherapi.com/v1/forecast.json?key=b21c7bbd22f64a6392180654240201&q=${cityName}&days=3`;
-    let { data } = await axios.get(url);
+    let data = await axios.get(url);
     // console.log(data);
-    setLocation(data?.location);
-    setCurrent(data?.current);
+    if (data.status == 200) {
+      setLocation(data?.data.location);
+      setCurrent(data?.data.current);
+    }
   }
 
   useEffect(() => {

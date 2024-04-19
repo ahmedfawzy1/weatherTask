@@ -4,7 +4,7 @@ import { WeatherContext } from "../../Context/WeatherContext";
 
 export default function Home() {
   let { current } = useContext(WeatherContext);
-  console.log(current);
+  // console.log(current);
   console.log(current.last_updated);
 
   return (
@@ -20,14 +20,12 @@ export default function Home() {
                     <span className="fw-medium">{current.last_updated}</span>
                   </div>
                   <div className={`${style.weather} text-center d-flex gap-2 justify-content-center align-items-center`}>
-                    <img src={current.condition.icon} alt="icon" />
+                    {/* <img src={current.condition.icon} alt="icon" /> */}
                     <p className="fw-medium fs-3">{current.temp_c}°C</p>
-                    <span className={`${style.status}`}>{current.condition.text}</span>
+                    {/* <span className={`${style.status}`}>{current.condition.text}</span> */}
                   </div>
                   <div className={`${style.conclution} mt-3`}>
-                    <p>
-                      There will be mostly {current.condition.text}. The high will be {current.temp_c}°C{" "}
-                    </p>
+                    <p>{/* There will be mostly {current.condition.text}. The high will be {current.temp_c}°C{" "} */}</p>
                   </div>
                 </div>
               </div>
