@@ -13,9 +13,26 @@
 }
 .hero .tomorrow .body .day {
   font-size: 12px;
+}
+.hero .tomorrow .body .day span {
   color: #00000066;
 }
 .hero .tomorrow .body .info {
   font-size: 12px;
-  color: #000000ad;
+  display: flex;
+  flex-direction: column;
+}
+.hero .weatherIcon {
+  width: 60px;
+}
+.hero .info span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 767px) {
+  .hero .mainHead {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

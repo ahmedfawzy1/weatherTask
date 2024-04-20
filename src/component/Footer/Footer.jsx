@@ -2,7 +2,7 @@ import style from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className="bg-main pt-4 position-absolute bottom-0 w-100">
+    <footer className="bg-main pt-4">
       <div className="container">
         <div className="row">
           <div className="col-md-4">
@@ -25,7 +25,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="col-md-8">
-            <div className="info d-flex justify-content-between">
+            <div className="info d-flex justify-content-between flex-wrap gap-4">
               <div className="services">
                 <h3 className={`${style.heading} h5 mb-4`}>Services</h3>
                 <ul className={`${style.links}`}>

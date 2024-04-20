@@ -26,3 +26,6 @@ a {
   font-weight: 700 !important;
   padding: 19px 47px 19px 47px !important;
 }
+.font-sm {
+  font-size: 15px !important;
+}

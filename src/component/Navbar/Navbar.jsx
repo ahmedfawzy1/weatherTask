@@ -1,10 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import style from "./Navbar.module.css";
 import { WeatherContext } from "../../Context/WeatherContext";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
-  let { location } = useContext(WeatherContext);
+  let { location, setCityName } = useContext(WeatherContext);
+
+  const [searchItem, setSearchItem] = useState("");
+
+  const handleSearchInputChange = (e) => {
+    // console.log(e.target.value);
+    e.preventDefault();
+    setCityName(searchItem);
+  };
 
   return (
     <header>
@@ -24,12 +32,14 @@ export default function Navbar() {
           </div>
           <div className={`${style.details} d-flex align-items-center gap-5`}>
             <div className="search">
-              <form className="d-flex" role="search">
+              <form className="d-flex" role="search" onSubmit={handleSearchInputChange}>
                 <input
                   className="form-control me-2 bg-transparent border-3 position-relative"
                   type="search"
                   placeholder="Search Location"
                   aria-label="Search"
+                  value={searchItem}
+                  onChange={(e) => setSearchItem(e.target.value)}
                 />
                 <i className="fa-solid fa-magnifying-glass position-absolute"></i>
               </form>
