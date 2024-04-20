@@ -1,0 +1,21 @@
+.images {
+  position: relative;
+}
+
+.sky1 {
+  position: absolute;
+  width: 419.28px;
+  /* height: 322.81px; */
+  /* top: 518px; */
+  /* left: 1px; */
+}
+
+.sky2 {
+  position: absolute;
+  width: 203.52px;
+  left: 320px;
+  top: -15px;
+  /* height: 165px; */
+  /* top: 436px; */
+  /* left: 368.48px; */
+}

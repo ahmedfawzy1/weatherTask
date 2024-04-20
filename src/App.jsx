@@ -5,6 +5,7 @@ import Home from "./component/Home/Home";
 import SignUp from "./component/SignUp/SignUp";
 import SignIn from "./component/SignIn/SignIn";
 import WeatherContextProvider from "./Context/WeatherContext";
+import UserContextProvider from "./Context/UserContext";
 
 function App() {
   let routers = createBrowserRouter([
@@ -30,9 +31,11 @@ function App() {
 
   return (
     <>
-      <WeatherContextProvider>
-        <RouterProvider router={routers}></RouterProvider>
-      </WeatherContextProvider>
+      <UserContextProvider>
+        <WeatherContextProvider>
+          <RouterProvider router={routers}></RouterProvider>
+        </WeatherContextProvider>
+      </UserContextProvider>
     </>
   );
 }

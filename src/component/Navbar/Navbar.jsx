@@ -2,14 +2,15 @@ import React, { useContext, useState } from "react";
 import style from "./Navbar.module.css";
 import { WeatherContext } from "../../Context/WeatherContext";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../Context/UserContext";
 
 export default function Navbar() {
   let { location, setCityName } = useContext(WeatherContext);
+  let { userToken, setUserToken } = useContext(UserContext);
 
   const [searchItem, setSearchItem] = useState("");
 
   const handleSearchInputChange = (e) => {
-    // console.log(e.target.value);
     e.preventDefault();
     setCityName(searchItem);
   };
@@ -20,8 +21,10 @@ export default function Navbar() {
         <div className="container bg-main px-4 py-3">
           <div className="about d-flex gap-5">
             <div className="status">
-              <i className="fa-solid fa-bars me-2"></i>
-              <span className="text-main">Sky Coast</span>
+              <Link to={"/"}>
+                <i className="fa-solid fa-bars me-2 text-black"></i>
+                <span className="text-main">Sky Coast</span>
+              </Link>
             </div>
             <div className="location">
               <i className="fa-solid fa-location-dot me-2 text-main"></i>
@@ -44,11 +47,15 @@ export default function Navbar() {
                 <i className="fa-solid fa-magnifying-glass position-absolute"></i>
               </form>
             </div>
-            <div className="signup">
-              <Link to={"signup"} type="button" className="btn btn-main">
-                Sign Up
-              </Link>
-            </div>
+            {!userToken ? (
+              <div className="signup">
+                <Link to={"signup"} type="button" className="btn btn-main">
+                  Sign Up
+                </Link>
+              </div>
+            ) : (
+              <h3>log</h3>
+            )}
           </div>
         </div>
       </nav>
