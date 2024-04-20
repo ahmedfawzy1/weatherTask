@@ -4,8 +4,8 @@ import Layout from "./component/Layout/Layout";
 import Home from "./component/Home/Home";
 import SignUp from "./component/SignUp/SignUp";
 import SignIn from "./component/SignIn/SignIn";
-import WeatherContextProvider from "./Context/WeatherContext";
-import UserContextProvider from "./Context/UserContext";
+import { UserContext } from "./Context/UserContext";
+import { useContext, useEffect } from "react";
 
 function App() {
   let routers = createBrowserRouter([
@@ -29,13 +29,16 @@ function App() {
     },
   ]);
 
+  let { setUserToken } = useContext(UserContext);
+  useEffect(() => {
+    if (localStorage.getItem("userToken")) {
+      setUserToken(localStorage.getItem("userToken"));
+    }
+  }, []);
+
   return (
     <>
-      <UserContextProvider>
-        <WeatherContextProvider>
-          <RouterProvider router={routers}></RouterProvider>
-        </WeatherContextProvider>
-      </UserContextProvider>
+      <RouterProvider router={routers}></RouterProvider>
     </>
   );
 }

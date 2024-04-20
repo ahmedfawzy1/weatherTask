@@ -1,11 +1,12 @@
 .details input {
   border: 1px solid #0000000e;
   border-radius: 12px;
+  padding-left: 28px;
 }
 .details input::placeholder {
   padding-left: 18px;
 }
-.details i {
+.details .search i {
   top: 50%;
   transform: translateY(-50%);
   padding-left: 10px;

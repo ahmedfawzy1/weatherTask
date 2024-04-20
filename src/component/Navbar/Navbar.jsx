@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import style from "./Navbar.module.css";
 import { WeatherContext } from "../../Context/WeatherContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 
 export default function Navbar() {
-  let { location, setCityName } = useContext(WeatherContext);
+  let { location, setCityName, error } = useContext(WeatherContext);
   let { userToken, setUserToken } = useContext(UserContext);
 
   const [searchItem, setSearchItem] = useState("");
@@ -14,6 +14,13 @@ export default function Navbar() {
     e.preventDefault();
     setCityName(searchItem);
   };
+
+  let navigate = useNavigate();
+  function logOut() {
+    localStorage.removeItem("userToken");
+    setUserToken(null);
+    navigate("/");
+  }
 
   return (
     <header>
@@ -34,10 +41,10 @@ export default function Navbar() {
             </div>
           </div>
           <div className={`${style.details} d-flex align-items-center gap-5`}>
-            <div className="search">
+            <div className={`${style.search}`}>
               <form className="d-flex" role="search" onSubmit={handleSearchInputChange}>
                 <input
-                  className="form-control me-2 bg-transparent border-3 position-relative"
+                  className="form-control me-2 bg-transparent border-3 position-relative shadow-none"
                   type="search"
                   placeholder="Search Location"
                   aria-label="Search"
@@ -46,6 +53,7 @@ export default function Navbar() {
                 />
                 <i className="fa-solid fa-magnifying-glass position-absolute"></i>
               </form>
+              {error && <p className="text-danger">{error}</p>}
             </div>
             {!userToken ? (
               <div className="signup">
@@ -54,7 +62,23 @@ export default function Navbar() {
                 </Link>
               </div>
             ) : (
-              <h3>log</h3>
+              <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i className="fa-solid fa-user"></i>
+                      <span className="ps-2">Ahmed Mohamed</span>
+                    </a>
+                    <ul className="dropdown-menu">
+                      <li>
+                        <button onClick={logOut} type="button" className="btn btn-dark w-100">
+                          Log Out
+                        </button>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             )}
           </div>
         </div>
